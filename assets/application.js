@@ -16,11 +16,19 @@ function getUserCredentials() {
 function setupListHandleClickEvent(workspaceId) {
   var gui = require('nw.gui');
 
-  document.querySelector('.list').addEventListener('click', function (event) {
-    var id = $(event.target).parents('li').find('.id').text();
+  function openBrowser(event) {
+    var id = $(this).find('.id').text();
     var url = 'https://app.liquidplanner.com/space/' + workspaceId + '/projects/show/' + id;
 
     gui.Shell.openExternal(url);
+  }
+
+  $('.list').on('click', 'li', openBrowser);
+
+  $('.list').on('keyup', 'li', function (event) {
+    if (event.keyCode == 13) {
+      openBrowser.call(this, event);
+    }
   });
 }
 
@@ -45,7 +53,7 @@ function getUserTasks(userCredentials) {
         password: userCredentials.password,
         success: function (data) {
           var options = {
-            item: '<li><h2 class="name"></h2><p><span class="parent_crumbs"></span><span class="client_name"></span></p><span class="id"></span></li>'
+            item: '<li tabindex="0"><h2 class="name"></h2><p><span class="parent_crumbs"></span><span class="client_name"></span></p><span class="id"></span></li>'
           };
 
           var list = new List('tasks', options, data);
