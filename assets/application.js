@@ -45,7 +45,7 @@ function getUserTasks(userCredentials) {
         password: userCredentials.password,
         success: function (data) {
           var options = {
-            item: '<li><h3 class="name"></h3><p><span class="parent_crumbs"></span><span class="client_name"></span></p><span class="id"></span></li>'
+            item: '<li><h2 class="name"></h2><p><span class="parent_crumbs"></span><span class="client_name"></span></p><span class="id"></span></li>'
           };
 
           var list = new List('tasks', options, data);
