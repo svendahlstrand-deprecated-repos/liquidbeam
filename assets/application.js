@@ -56,6 +56,7 @@ function getUserTasks(userCredentials) {
             item: '<li tabindex="0"><h2 class="name"></h2><p><span class="parent_crumbs"></span><span class="client_name"></span></p><span class="id"></span></li>'
           };
 
+          $('.loading-indicator').hide();
           var list = new List('tasks', options, data);
           list.sort('updated_at', { order: 'desc' });
         }
