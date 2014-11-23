@@ -57,8 +57,7 @@ function getUserTasks(userCredentials) {
           };
 
           $('.loading-indicator').hide();
-          var list = new List('tasks', options, data);
-          list.sort('updated_at', { order: 'desc' });
+          new List('tasks', options, data);
         }
       });
     }
