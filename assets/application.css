@@ -1,42 +1,110 @@
+html, body {
+  height: 100%;
+}
+
 body {
-  background: #eff0f1;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #eee;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin: 0;
+  font-size: 0.9em;
+  -webkit-user-select: none;
+}
+
+::selection {
+  background: #7D9E09;
+}
+
+#tasks, #settings {
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#tasks header {
+  background-color: #fff;
+  padding: 1em 0.5em;
+}
+
+#settings {
+  background-color: #fff;
+  padding: 1em;
+  display: none;
 }
 
 ul {
   padding: 0;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 57px;
+  overflow: scroll;
 }
 
 li {
-  background: #fff;
-  border-radius: 2px;
-  box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.15);
-
-  margin-bottom: 1em;
-  padding: 1em;
+  padding: 0.7em;
 
   cursor: pointer;
   list-style-type: none;
 }
 
-input {
-  font-size: 1em;
-  background: #fdfdfd;
-  border: solid 1px #e1e3e6;
-  border-radius: 20px;
-  padding: 0.5em;
+li:focus, li:active {
+  background-color: #7D9E09;
+  outline: none;
+  color: #fff;
 }
 
 button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+input {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   font-size: 1em;
+  background: #fff;
+  border: none;
+  padding: 0em;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+input.search {
+
+}
+
+label {
+  font-size: 1.5em;
+  padding: 0.5em;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  font-size: 1.5em;
+  font-weight: 300;
+  background: #7D9E09;
+  padding: 0.5em;
+  display: block;
+  margin: 1em 0;
+  width: 100%;
+  color: #fff;
+  border: 0;
+  outline: none;
 }
 
 h2 {
   margin: 0;
+  font-weight: 300;
 }
 
 p {
-  margin-bottom: 0;
+  margin: 0.2em 0 0 0;
 }
 
 .id {

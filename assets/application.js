@@ -53,7 +53,7 @@ function getUserTasks(userCredentials) {
         password: userCredentials.password,
         success: function (data) {
           var options = {
-            item: '<li tabindex="0"><h2 class="name"></h2><p><span class="parent_crumbs"></span><span class="client_name"></span></p><span class="id"></span></li>'
+            item: '<li tabindex="0"><h2 class="name"></h2><p><span class="parent_crumbs"></span> <span class="client_name"></span></p><span class="id"></span></li>'
           };
 
           $('.loading-indicator').hide();
@@ -84,6 +84,10 @@ function saveFormData(event) {
     localStorage.setItem('username', username);
     keytar.replacePassword('LiquidBeam', username, password);
   }
+
+  $('#settings').hide();
+  $('#tasks').show();
+  $('.search').focus().eq(0).select();
 }
 
 function isPresent(text) {
@@ -114,6 +118,16 @@ var menu = new gui.Menu();
 menu.append(new gui.MenuItem({
   label: 'Open',
   click: function () {
+    win.show();
+    win.focus();
+  }
+}));
+
+menu.append(new gui.MenuItem({
+  label: 'Settings',
+  click: function () {
+    $('#tasks').hide();
+    $('#settings').show();
     win.show();
     win.focus();
   }

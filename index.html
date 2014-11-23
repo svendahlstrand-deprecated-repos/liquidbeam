@@ -5,12 +5,15 @@
 
     <link rel="stylesheet" type="text/css" href="assets/vendor/3-wave.css">
     <link rel="stylesheet" type="text/css" href="assets/application.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
     <title>LiquidBeam</title>
   </head>
   <body>
     <div id="tasks">
-      <input type="text" class="search" autofocus />
+      <header>
+        <label>Search: <input type="text" class="search" autofocus /></label>
+      </header>
 
       <div class="loading-indicator sk-spinner sk-spinner-wave">
         <div class="sk-rect1"></div>
@@ -23,11 +26,13 @@
       <ul class="list"></ul>
     </div>
 
-    <form>
-      <input type="text" name="username" />
-      <input type="password" name="password" />
-      <button>Spara</button>
-    </form>
+    <div id="settings">
+      <form>
+        <label>Username: <input type="text" name="username" /></label>
+        <label>Password: <input type="password" name="password" /></label>
+        <button>Save</button>
+      </form>
+    </div>
 
     <script src="assets/vendor/jquery-1.11.0.min.js"></script>
     <script src="assets/vendor/list.min.js"></script>
