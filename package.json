@@ -3,6 +3,12 @@
   "description": "Beam me up, Scotty. For LiquidPlanner.",
   "version": "0.1.0",
   "main": "index.html",
+  "window": {
+    "show_in_taskbar": false,
+    "toolbar": false,
+    "frame": false,
+    "show": false
+  },
   "dependencies": {
     "keytar": "latest"
   }

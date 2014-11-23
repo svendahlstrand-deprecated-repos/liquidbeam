@@ -93,3 +93,65 @@ function isPresent(text) {
 populateFormWithSavedData();
 form.addEventListener('submit', saveFormData);
 getUserTasks(getUserCredentials());
+
+var gui = require('nw.gui');
+var win = gui.Window.get();
+var winIsVisible = false;
+
+win.on('focus', function() {
+  $('.search').focus().eq(0).select();
+  winIsVisible = true;
+});
+
+win.on('blur', function() {
+  win.hide();
+  winIsVisible = false;
+});
+
+var tray = new gui.Tray({ title: 'LiquidBeam' });
+var menu = new gui.Menu();
+
+menu.append(new gui.MenuItem({
+  label: 'Open',
+  click: function () {
+    win.show();
+    win.focus();
+  }
+}));
+
+menu.append(new gui.MenuItem({
+  type: 'separator'
+}));
+
+menu.append(new gui.MenuItem({
+  label: 'Quit',
+  click: function () {
+    gui.App.quit();
+  }
+}));
+
+tray.menu = menu;
+
+var mb = new gui.Menu({type: 'menubar'});
+mb.createMacBuiltin('LiquidBeam');
+win.menu = mb;
+
+var option = {
+  key : "Ctrl+Alt+L",
+  active : function() {
+    if (winIsVisible) {
+      win.hide();
+    }
+    else {
+      win.show();
+      win.focus();
+    }
+  },
+  failed : function(msg) {
+    console.log(msg);
+  }
+};
+
+var shortcut = new gui.Shortcut(option);
+
+gui.App.registerGlobalHotKey(shortcut);
